@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f6f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat",sans-serif;
+    height: 100vh;  /*total height of the page */
+    margin: 0 auto;  /*this brings the box to the center page */
+}
+.container{
+    background-color: rgba(79, 221, 240, 0.478);
+    border-radius: 10px; /*to create a rounded edges*/
+    width: 800px; /* size of the whole box*/
+    max-width: 100%; /* size of the middle box*/
+    min-height: 400px; /* height of the middle box*/
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 14px 28px rgba(0,0,0,.25), 0px 10px 10px rgba(0,0,0,.25)
+
+}
+.form-container{
+    position: absolute;
+    top: 0%;
+    height: 100%;
+}
+.sign-up-container{
+    left: 0;
+    width: 50%;
+    z-index: 1;
+}
+form{
+    background-color: #58d2ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+    
+}
+h1{
+    font-weight: bold;
+    margin: 0;
+}
+input{
+    background-color: #eee;
+    border: none;
+    text-decoration: none;
+    margin: 8PX 0; /* space between lines */
+    padding: 12px 15px; /* inner box spacing*/
+    width: 100%;
+}
+button{
+    border-radius: 10px;
+    border: 1px solid #f6f5f7;
+    background-color:rgba(47, 99, 229, 0.986); /*for signin button color combination*/
+    color:aliceblue;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.sign-in-container{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+.overlay-container{
+    position: ABSOLUTE;
+    top:0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 100;
+}
+.overlay{
+    background-color:rgba(47, 99, 229, 0.986);
+    background: linear-gradient(to right, #eee, #58d2ed);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color:antiquewhite;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+}
+.overlay-panel{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+}
+.overlay-left{
+    transform: translateX(-20%);
+}
+.overlay-right{
+    right: 0;
+    transform: translateX(0);
+}
+.button:active{
+    transform: scale(.95);
+}
+.button.press{
+    background-color: transparent;
+    border-color:#223ef4;
+}
+h1{
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: .5px;
+    margin: 20px 0 30px;
+}
+.path{
+    position: absolute;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(90deg, #eee, #223ef4 100%);
+    clip-path: circle(100px at top);
+    z-index: 1;
+}
+.container.right-panel-active.sign-in-container{
+    transform: translateX(100%);
+}
+.container.right-panel-active.sign-up-container{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: slide 0.6s;
+}
+@keyframes slide{
+    0%,49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%,100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+.container.right-panel-active.overlay-container{
+    transform: translateX(-100%);
+}
+.container.right-panel-active.overlay{
+    transform: translateX(50%);
+}
+.container.right-panel-active.overlay-left{
+    transform: translateX(0);
+}
+.container.right-panel-active.overlay-right{
+    transform: translateX(20);
+}
